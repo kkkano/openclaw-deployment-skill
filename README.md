@@ -1,6 +1,6 @@
 # 🐱 OpenClaw Deployment Skill for Claude Code
 
-> 在中国大陆服务器上部署 [OpenClaw](https://github.com/nicepkg/openclaw) Telegram AI Bot 的完整经验指南，专为 Claude Code 设计。
+> 在中国大陆服务器上部署 [OpenClaw](https://github.com/openclaw/openclaw) Telegram AI Bot 的完整经验指南，专为 Claude Code 设计。
 
 ## 这是什么？
 
@@ -107,7 +107,7 @@ Bot 不响应？
 
 ## 技术栈
 
-- **OpenClaw**: [nicepkg/openclaw](https://github.com/nicepkg/openclaw)
+- **OpenClaw**: [openclaw/openclaw](https://github.com/openclaw/openclaw)
 - **服务器**: Ubuntu 22.04 on Tencent Cloud
 - **容器**: Docker + Docker Compose
 - **代理**: Xray (VMess) + Chromium wrapper script

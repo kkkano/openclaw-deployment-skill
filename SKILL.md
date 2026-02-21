@@ -7,7 +7,7 @@ description: Complete guide for deploying OpenClaw (Telegram AI Bot) on a China 
 
 ## Overview
 
-Deploy [OpenClaw](https://github.com/nicepkg/openclaw) as a Telegram AI Bot on a China mainland cloud server (tested on Tencent Cloud Ubuntu 22.04). This skill covers the complete deployment pipeline including GFW bypass, browser automation, memory system, and cross-device memory synchronization.
+Deploy [OpenClaw](https://github.com/openclaw/openclaw) as a Telegram AI Bot on a China mainland cloud server (tested on Tencent Cloud Ubuntu 22.04). This skill covers the complete deployment pipeline including GFW bypass, browser automation, memory system, and cross-device memory synchronization.
 
 ### Architecture
 
@@ -51,7 +51,7 @@ sudo usermod -aG docker $USER
 
 ```bash
 cd /home/ubuntu
-git clone https://github.com/nicepkg/openclaw.git
+git clone https://github.com/openclaw/openclaw.git
 cd openclaw
 ```
 
