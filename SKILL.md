@@ -566,7 +566,29 @@ Telegram Bot (server)          GitHub Private Repo         Claude Code (local)
 - Config exported with Python sanitizer (strips token/key/secret/password fields)
 - Git commit only if there are actual changes (`git diff --cached --quiet`)
 
-### 9.4 Repository Structure
+### 9.4 Claude Code CLAUDE.md Read Directive (Critical!)
+
+Simply listing file paths in `CLAUDE.md` is NOT enough — Claude Code won't proactively read arbitrary directories.
+
+You must add **imperative read instructions** so Claude Code treats them as behavioral rules:
+
+```markdown
+### ⚡ 记忆读取指令（必须执行）
+当主人提到 Telegram Bot、Bot 记忆、同步记忆等相关话题时，**必须主动读取以下文件**获取 Bot 最新状态：
+1. **Bot 记忆导出**: `D:/openclaw-memory/telegram-bot/export/memory-export.md`
+2. **同步状态**: `D:/openclaw-memory/.sync-status.json`
+3. **Bot 配置**: `D:/openclaw-memory/shared/config-sanitized.json`
+
+如果文件不存在或内容过旧，提醒主人运行桌面 `拉取Bot记忆.bat` 或 `cd /d D:\openclaw-memory && git pull`
+```
+
+**Why this matters**:
+- `CLAUDE.md` is read at session start as **behavioral instructions**, not just reference data
+- Descriptive text ("Bot memory is at D:/...") → Claude Code knows the path but won't act
+- Imperative text ("**必须主动读取**以下文件") → Claude Code will use `Read` tool to open those files
+- The trigger condition ("当主人提到...") ensures it only reads when contextually relevant
+
+### 9.5 Repository Structure
 
 ```
 openclaw-memory/

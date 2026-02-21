@@ -113,3 +113,21 @@ gh repo view kkkano/openclaw-memory --json pushedAt
 2. **Deploy key**: Added to repo with write access
 3. **Git config**: user.name + user.email set globally
 4. **known_hosts**: `ssh-keyscan github.com >> ~/.ssh/known_hosts`
+
+## Claude Code CLAUDE.md Read Directive (Critical!)
+
+Simply listing file paths in `CLAUDE.md` is NOT enough — Claude Code won't proactively read arbitrary directories.
+
+You must add **imperative read instructions** with trigger conditions:
+
+```markdown
+### ⚡ 记忆读取指令（必须执行）
+当主人提到 Telegram Bot、Bot 记忆、同步记忆等相关话题时，**必须主动读取以下文件**获取 Bot 最新状态：
+1. **Bot 记忆导出**: `D:/openclaw-memory/telegram-bot/export/memory-export.md`
+2. **同步状态**: `D:/openclaw-memory/.sync-status.json`
+3. **Bot 配置**: `D:/openclaw-memory/shared/config-sanitized.json`
+
+如果文件不存在或内容过旧，提醒主人运行 `拉取Bot记忆.bat` 或 `cd /d D:\openclaw-memory && git pull`
+```
+
+**Key insight**: `CLAUDE.md` content is treated as behavioral rules. Descriptive text ("memory is at D:/...") only informs; imperative text ("**必须主动读取**") triggers actual `Read` tool usage.
